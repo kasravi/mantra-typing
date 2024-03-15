@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MantraTyping</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="drawer" id="myDrawer">
+      <div class="drawer-content">
+        <div class="circumplex-container">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Circumplex_model_of_emotion.svg"
+            style="width: 100%; background-color: black"
+          />
+          <div class="pin" id="pin"></div>
+        </div>
+        <hr />
+        <label for="waitForCorrect">Wait For Correct Letter</label>
+        <input type="checkbox" checked id="waitForCorrect" />
+        <hr />
+        <details>
+          <summary>
+            What's this?
+            <span class="icon">↓</span>
+          </summary>
+          <md-block src="README.md"></md-block>
+        </details>
+      </div>
+    </div>
+    <div class="drawer-toggle" id="drawer-button">
+      <i class="bi bi-list"></i>
+    </div>
+    <div id="main">
+      <div class="wordContainer" id="wordContainer">
+        <p class="word" id="wordDisplay"></p>
+        <p class="word userWord" id="wordDisplayUser"></p>
+      </div>
+      <div class="hands">
+        <i id="lp" class="arrows bi bi-arrow-down"></i>
+        <i id="lr" class="arrows bi bi-arrow-down"></i>
+        <i id="lm" class="arrows bi bi-arrow-down"></i>
+        <i id="li" class="arrows bi bi-arrow-down"></i>
+        <i id="rp" class="arrows bi bi-arrow-down"></i>
+        <i id="rr" class="arrows bi bi-arrow-down"></i>
+        <i id="rm" class="arrows bi bi-arrow-down"></i>
+        <i id="ri" class="arrows bi bi-arrow-down"></i>
+        <i id="ts" class="arrows bi bi-arrow-down"></i>
+        <img
+          class="hand"
+          src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Silhouette_hand.svg"
+        />
+        <img
+          class="hand rev"
+          src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Silhouette_hand.svg"
+        />
+      </div>
+    </div>
+    <script src="scripts.js" type="module"></script>
+  </body>
+</html>

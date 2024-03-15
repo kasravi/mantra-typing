@@ -1,0 +1,216 @@
+:root {
+  --text-color: #333;
+  --text-color2: #aaa;
+  --bg-color: #fff;
+  --bg-drawer-color: #f1f1f1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fff;
+    --text-color2: #aaa;
+    --bg-color: #333;
+    --bg-drawer-color: #666;
+  }
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -340px; /* Initially hidden off-screen */
+  width: 340px;
+  height: 100%;
+  background-color: var(--bg-drawer-color);
+  transition: left 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+.drawer.open {
+  left: 0; /* Slide in from the left when open */
+}
+.drawer-content {
+  padding: 20px;
+}
+.drawer-toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.circumplex-container {
+  position: relative;
+  width: 300px; /* Adjust width as needed */
+  height: 300px; /* Adjust height as needed */
+  margin: 50px auto;
+  border: 2px solid #000;
+}
+
+.axis {
+  position: absolute;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.axis-horizontal {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.axis-vertical {
+  left: 50%;
+  transform: translateX(-50%);
+  writing-mode: vertical-lr;
+}
+
+.axis-label {
+  margin: 0;
+  font-size: 14px;
+}
+
+.pin {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: coral;
+  border-radius: 50%;
+  cursor: pointer;
+  left: 290px;
+  top: 140px;
+  /* transform: translate(-50%, -50%); */
+}
+
+.wordContainer {
+  width: 40rem;
+  position: absolute;
+  left: calc(50% - 20rem);
+  top: 10%;
+}
+.word {
+  position: absolute;
+  color: var(--text-color2);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 5rem;
+  z-index: 10;
+}
+
+.userWord {
+  color: var(--text-color);
+}
+
+.hands {
+  position: absolute;
+  width: 40rem;
+  left: calc(50% - 20rem);
+  top: 40%;
+  display: flex;
+  z-index: 0;
+}
+.hand {
+  width: 50%;
+}
+
+.rev {
+  transform: scaleX(-1);
+}
+
+.arrows {
+  position: absolute;
+  z-index: 20;
+  font-size: 3rem;
+  color: var(--text-color2);
+}
+
+#lp {
+  left: 3%;
+  top: 35%;
+}
+#lr {
+  left: 7%;
+  top: 22%;
+}
+#lm {
+  left: 13%;
+  top: 14%;
+}
+#li {
+  left: 19%;
+  top: 15%;
+}
+#rp {
+  left: 90%;
+  top: 34%;
+}
+#rr {
+  left: 86%;
+  top: 22%;
+}
+#rm {
+  left: 80%;
+  top: 14%;
+}
+#ri {
+  left: 73%;
+  top: 15%;
+}
+#ts {
+  left: 46%;
+  top: 38%;
+}
+
+details {
+  user-select: none;
+}
+
+md-block {
+  overflow-y: scroll;
+  margin-top: 2rem;
+  height: 20rem;
+  display: block;
+  color: #333;
+}
+
+md-block a {
+  color: #444;
+}
+
+details > summary span.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s;
+  margin-left: auto;
+}
+
+details[open] summary span.icon {
+  transform: rotate(180deg);
+}
+
+summary {
+  display: flex;
+  cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
