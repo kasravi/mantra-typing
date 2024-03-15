@@ -214,3 +214,12 @@ summary {
 summary::-webkit-details-marker {
   display: none;
 }
+
+#onlyLetters{
+  margin-top:0.5rem;
+}
+
+#config{
+  margin:2px;
+  width:6rem;
+}

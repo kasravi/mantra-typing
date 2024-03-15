@@ -4,8 +4,23 @@ var pin = document.getElementById("pin");
 var container = document.querySelector(".circumplex-container");
 
 import {words} from "./words.js";
-var arousal=0,valence=1,wordBucket=getClosestWords(1, 0, 100);
+var userInput="",word="",arousal=0,valence=1,wordBucket=getClosestWords(1, 0, 100);
 document.getElementsByTagName("html")[0].addEventListener("click", closeDrawer)
+
+function show(){
+    userInput = "";
+    const newRandomIndex = Math.floor(Math.random() * wordBucket.length);
+    word = wordBucket[newRandomIndex];
+    showHelp(word[0])
+    wordDisplay.textContent = word;
+    wordDisplayUser.textContent = "";
+    centerContent();
+}
+
+document.getElementById("onlyLetters").addEventListener("click",()=>{
+    wordBucket = Object.keys(helpDict[document.getElementById("config").value])
+    show();
+})
 
 function centerContent() {
     const wordContainer = document.getElementById('wordContainer');
@@ -45,15 +60,13 @@ pin.addEventListener("mousedown", function(event) {
         pin.style.top = newY + 'px';
         valence = (10+newX-(container.clientWidth/2))/(container.clientWidth/2);
         arousal = -(10+newY-(container.clientHeight/2))/(container.clientHeight/2);
-        console.log(valence, arousal)
     }
 
     function releasePin() {
         document.removeEventListener("mousemove", movePin);
         document.removeEventListener("mouseup", releasePin);
         wordBucket = getClosestWords(valence, arousal, 100);
-        console.log("Closest word:", wordBucket);
-
+        show();
     }
 
     document.addEventListener("mousemove", movePin);
@@ -76,18 +89,18 @@ function closeDrawer(e) {
 
 document.addEventListener("DOMContentLoaded", function() {
     const randomIndex = Math.floor(Math.random() * wordBucket.length);
-    let word = wordBucket[randomIndex];
+    word = wordBucket[randomIndex];
 
     const wordDisplay = document.getElementById("wordDisplay");
     const wordDisplayUser = document.getElementById("wordDisplayUser");
     wordDisplay.textContent = word;
     centerContent();
     showHelp(word[0])
-    let userInput = "";
+    userInput = "";
 
     document.addEventListener("keydown", function(event) {
         const key = event.key;
-        if (/^[a-zA-Z\s]$/.test(key)) {
+        if (key !== "Backspace") {
             if(document.getElementById("waitForCorrect").checked && word[userInput.length]!==key) return
             userInput += key;
             wordDisplayUser.innerHTML = userInput.split("").map((f,i)=>{
@@ -102,15 +115,9 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             showHelp(word[counter-1])
             if (userInput === word) {
-                userInput = "";
-                const newRandomIndex = Math.floor(Math.random() * wordBucket.length);
-                word = wordBucket[newRandomIndex];
-                showHelp(word[0])
-                wordDisplay.textContent = word;
-                wordDisplayUser.textContent = "";
-                centerContent();
+                show();
             }
-        } else if (key === "Backspace"){
+        } else {
             userInput = userInput.substring(0, userInput.length  - 1);
             wordDisplayUser.innerHTML = userInput.split("").map((f,i)=>{
                 const style= word[i]===f?"":"color:red"
@@ -255,7 +262,7 @@ const showHelp = (c)=>{
         f.style.display="none"
     })
     
-    let t = helpDict["qwerty"][c]
+    let t = helpDict[document.getElementById("config").value][c]
     if(!t) return;
     let element = document.getElementById(t.finger);
     const classes = element.classList;
