@@ -256,6 +256,7 @@ const showHelp = (c)=>{
     })
     
     let t = helpDict["qwerty"][c]
+    if(!t) return;
     let element = document.getElementById(t.finger);
     const classes = element.classList;
 
