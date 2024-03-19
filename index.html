@@ -28,15 +28,25 @@
           />
           <div class="pin" id="pin"></div>
           or
-        <button class="btn btn-dark" id="onlyLetters" >Only Letters</button>
+          <button class="btn btn-dark" id="onlyLetters">Only Letters</button>
         </div>
         <hr />
-        <label for="waitForCorrect">Wait For Correct Letter</label>
-        <input type="checkbox" checked id="waitForCorrect" />
-        <label for="config">Keyboard Configuration</label>
-        <select class="form-control" id="config" >
-          <option value="qwerty">QWERTY</option>
-        </select>
+        <div style="display: flex; flex-direction: column">
+          <div>
+            <label for="waitForCorrect">Wait For Correct Letter</label>
+            <input type="checkbox" checked id="waitForCorrect" />
+          </div>
+          <div>
+            <label for="readAload">Read Aload</label>
+            <input type="checkbox" id="readAload" />
+          </div>
+          <div>
+            <label for="config">Keyboard Configuration</label>
+            <select class="form-control" id="config">
+              <option value="qwerty">QWERTY</option>
+            </select>
+          </div>
+        </div>
         <hr />
         <details>
           <summary>
