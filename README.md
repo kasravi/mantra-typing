@@ -11,3 +11,5 @@ I used the Circumplex model of emotion and got the word sentiments from [this](h
 2. Because of the experimental nature of it, I also tried more stuff. like 
     - instead of showing a keyboard as a guide/help, I show the finger movements. If the objective of learning touch typing is to train muscle memories, why not aim exactly for that?
     - instead of a long list of words, I just show one word. I think one word at a time(?) so maybe aim for that.
+
+got the english corpus from [here](https://github.com/dwyl/english-words)

@@ -37,13 +37,29 @@
             <input type="checkbox" checked id="waitForCorrect" />
           </div>
           <div>
+            <label for="beepForWrong">Beep on wrong input</label>
+            <input type="checkbox" checked id="beepForWrong" />
+          </div>
+          <div>
             <label for="readAload">Read Aload</label>
             <input type="checkbox" id="readAload" />
+          </div>
+          <div>
+            <label for="lowerOnly">Lowercase only</label>
+            <input type="checkbox" id="lowerOnly" />
           </div>
           <div>
             <label for="config">Keyboard Configuration</label>
             <select class="form-control" id="config">
               <option value="qwerty">QWERTY</option>
+            </select>
+          </div>
+          <div>
+            <label for="corpus">Words Corpus</label>
+            <select class="form-control" id="corpus">
+              <option value="words">words with emotion data</option>
+              <option value="words_all">all words</option>
+              <option value="words_alpha">only alphabetic words</option>
             </select>
           </div>
         </div>

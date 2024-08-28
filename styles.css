@@ -42,6 +42,8 @@ hr {
 }
 .drawer.open {
   left: 0; /* Slide in from the left when open */
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .drawer-content {
   padding: 20px;
